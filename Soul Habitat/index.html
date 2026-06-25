@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Soulhabitat · Built for Happiness</title>
+<meta name="description" content="Soulhabitat One. Seven private homes and a shared common house on Koh Phangan, designed for real solitude and easy community. Built for happiness." />
+
+<!-- Fonts: a warm serif for soul, a clean sans for clarity -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          // Exact palette sampled from the Soulhabitat presentation
+          sage: {
+            DEFAULT: '#9cb4a8',   // soft sage (cover background)
+            deep:   '#30483c',    // deep sage green (logo / headlines)
+            forest: '#243a30',    // darkest forest for depth
+            mid:    '#5a7666',    // mid sage for body accents
+            pale:   '#b4ccc0',    // pale mint sage
+            mist:   '#cdddd4',    // mist
+            wash:   '#e7efea',    // faintest wash
+          },
+          earth: {
+            DEFAULT: '#84786c',   // warm taupe
+            deep:    '#5c5248',   // deep earth
+            sand:    '#cabfae',   // sand
+            clay:    '#a8957f',   // clay
+          },
+          cream: '#f7f4ee',       // warm off-white canvas
+          paper: '#fbf9f5',       // lighter paper
+          ink:   '#2b332e',       // near-black with green undertone
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        letterSpacing: {
+          'widest-2': '0.32em',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #f7f4ee; color: #2b332e; -webkit-font-smoothing: antialiased; }
+
+  /* Eyebrow label spacing like the deck (R E S E A R C H) */
+  .eyebrow { letter-spacing: 0.32em; text-transform: uppercase; }
+
+  /* Slow, gentle reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s cubic-bezier(.16,.7,.3,1), transform 1.1s cubic-bezier(.16,.7,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  ::selection { background: #30483c; color: #f7f4ee; }
+
+  /* Images fade in gently as they load */
+  img { background-color: #e7efea; }
+
+  /* Soft hairline divider */
+  .hair { height:1px; background: linear-gradient(to right, transparent, rgba(48,72,60,.22), transparent); }
+
+  /* Nav backdrop */
+  .nav-blur { backdrop-filter: saturate(140%) blur(10px); }
+
+  /* Reduce motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+
+<!-- ===================== NAVIGATION ===================== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <nav class="nav-blur border-b border-transparent transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-[68px]">
+      <a href="#top" class="flex items-center group">
+        <img id="nav-logo" decoding="async" src="images/SH Logo cream.png" alt="Soulhabitat" class="h-8 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80" />
+      </a>
+      <div class="hidden lg:flex items-center gap-8 text-[13px] text-ink/70">
+        <a href="#vision" class="hover:text-sage-deep transition-colors">Vision</a>
+        <a href="#experience" class="hover:text-sage-deep transition-colors">A Day Here</a>
+        <a href="#place" class="hover:text-sage-deep transition-colors">The Place</a>
+        <a href="#homes" class="hover:text-sage-deep transition-colors">Homes</a>
+        <a href="#community" class="hover:text-sage-deep transition-colors">Community</a>
+        <a href="#ownership" class="hover:text-sage-deep transition-colors">Ownership</a>
+        <a href="#founder" class="hover:text-sage-deep transition-colors">Founder</a>
+      </div>
+      <a href="#contact" class="text-[13px] tracking-wide border border-sage-deep/30 text-sage-deep rounded-full px-5 py-2 hover:bg-sage-deep hover:text-cream transition-all duration-300">
+        Express interest
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="top" class="relative min-h-screen flex items-center overflow-hidden bg-sage-deep">
+  <!-- Hero photograph: the orchard land -->
+  <img fetchpriority="high" decoding="async" src="images/SH 1.jpg" alt="A freshwater stream winding through the mature tropical orchard at Soulhabitat, Koh Phangan" class="absolute inset-0 w-full h-full object-cover" />
+  <!-- Soft sage wash over image for legibility -->
+  <div class="absolute inset-0 bg-gradient-to-b from-sage-deep/55 via-sage-deep/30 to-sage-deep/70"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-10 text-center text-cream pt-28 pb-24">
+    <div class="reveal in flex justify-center mb-9">
+      <img decoding="async" src="images/SH Logo cream.png" alt="Soulhabitat" class="h-12 sm:h-14 w-auto object-contain" />
+    </div>
+    <p class="eyebrow text-[11px] text-cream/80 mb-7">Koh Phangan · Thailand</p>
+    <h1 class="font-serif font-light leading-[1.05] text-5xl sm:text-6xl lg:text-7xl tracking-tight">
+      A home built<br/>for happiness.
+    </h1>
+    <p class="mt-8 max-w-2xl mx-auto text-lg sm:text-xl text-cream/90 font-light leading-relaxed">
+      Seven private homes around a shared common house, set in a mature tropical orchard. You get real solitude whenever you want it, and a community that's ninety seconds away when you don't.
+    </p>
+    <div class="mt-11 flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#contact" class="bg-cream text-sage-deep rounded-full px-8 py-3.5 text-sm tracking-wide hover:bg-white transition-all duration-300 shadow-sm">Express interest</a>
+      <a href="#vision" class="text-cream/90 text-sm tracking-wide border-b border-cream/40 pb-1 hover:border-cream transition-colors">Discover the vision &darr;</a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/60 text-xs tracking-widest animate-pulse">SCROLL</div>
+</section>
+
+<!-- ===================== THE VISION ===================== -->
+<section id="vision" class="relative py-28 lg:py-36 bg-cream overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <p class="eyebrow text-[11px] text-sage-mid mb-6 reveal">The Vision</p>
+    <h2 class="font-serif font-light text-3xl sm:text-4xl lg:text-5xl leading-tight text-sage-deep reveal">
+      We have never been more connected.<br class="hidden sm:block"/> And never more alone.
+    </h2>
+    <div class="hair w-24 mx-auto my-10 reveal"></div>
+    <p class="text-lg sm:text-xl text-ink/80 font-light leading-relaxed reveal">
+      Two in five adults now live with deep, lasting loneliness. So many, in fact, that governments have begun appointing ministers to deal with it. The research leaves little room for doubt. Weak social connection shortens a life about as much as smoking fifteen cigarettes a day.
+    </p>
+    <p class="mt-6 text-lg sm:text-xl text-ink/80 font-light leading-relaxed reveal">
+      Soulhabitat begins with a quieter, more hopeful truth, one drawn from eighty years of Harvard research and a lifetime of building in remote places. <span class="text-sage-deep">The way we design our homes shapes the way we feel inside them.</span>
+    </p>
+  </div>
+
+  <!-- Three principles -->
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 mt-20 grid md:grid-cols-3 gap-10">
+    <div class="reveal text-center">
+      <div aria-hidden="true" class="w-10 h-10 mx-auto mb-5 rounded-full border border-sage-deep/40 flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-sage-deep"></span></div>
+      <h3 class="font-serif text-xl text-sage-deep mb-3">Privacy without isolation</h3>
+      <p class="text-ink/70 font-light leading-relaxed">A home that gives you real quiet behind a closed door, with warm company a short walk away the moment you want it.</p>
+    </div>
+    <div class="reveal text-center">
+      <div aria-hidden="true" class="w-10 h-10 mx-auto mb-5 rounded-full border border-sage-deep/40 flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-sage-deep"></span></div>
+      <h3 class="font-serif text-xl text-sage-deep mb-3">Connection by design</h3>
+      <p class="text-ink/70 font-light leading-relaxed">A shared meal, working side by side, a conversation by the pool. These are small everyday moments, and they only happen when the buildings around you make room for them.</p>
+    </div>
+    <div class="reveal text-center">
+      <div aria-hidden="true" class="w-10 h-10 mx-auto mb-5 rounded-full border border-sage-deep/40 flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-sage-deep"></span></div>
+      <h3 class="font-serif text-xl text-sage-deep mb-3">Rooted in nature</h3>
+      <p class="text-ink/70 font-light leading-relaxed">Homes that feel like part of the orchard around them. No cars, no fences, just light and trees and the space to breathe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE EXPERIENCE / A DAY IN THE LIFE ===================== -->
+<section id="experience" class="relative py-28 lg:py-36 bg-sage-deep text-cream overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="eyebrow text-[11px] text-sage-pale mb-6 reveal">A Day in the Life</p>
+      <h2 class="font-serif font-light text-3xl sm:text-4xl lg:text-5xl leading-tight reveal">What does living here<br class="hidden sm:block"/> actually feel like?</h2>
+      <p class="mt-6 text-cream/75 font-light text-lg leading-relaxed reveal">From the first cup of coffee to the last ember of the fire pit, the rhythm is yours to set. Here is one ordinary, extraordinary day.</p>
+    </div>
+
+    <div class="mt-16 reveal">
+      <div class="aspect-[21/9] rounded-2xl overflow-hidden border border-cream/10 shadow-lg">
+        <img loading="lazy" decoding="async" src="images/SH 3.jpg" alt="Neighbours gathered around a shared table, hands reaching in over a meal cooked together" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <div class="mt-20 grid md:grid-cols-2 gap-x-20 gap-y-16">
+      <!-- Morning -->
+      <div class="reveal">
+        <p class="eyebrow text-[11px] text-sage-pale mb-4">Morning</p>
+        <p class="text-cream/85 font-light leading-relaxed text-lg">You wake in your own home and make coffee in your own kitchen. The door to the deck swings open into the trees, and for a while the day belongs entirely to you.</p>
+      </div>
+      <!-- Mid-morning -->
+      <div class="reveal">
+        <p class="eyebrow text-[11px] text-sage-pale mb-4">Late morning</p>
+        <p class="text-cream/85 font-light leading-relaxed text-lg">Ninety seconds on foot brings you to the common house. Two neighbours are already working there. You pull up a chair beside them, or you take a quiet corner of your own. It's your call, every time.</p>
+      </div>
+      <!-- Afternoon -->
+      <div class="reveal">
+        <p class="eyebrow text-[11px] text-sage-pale mb-4">Afternoon</p>
+        <p class="text-cream/85 font-light leading-relaxed text-lg">A swim in the natural pool as the heat softens. Later, someone lights the fire pit. You wander over, or you don't, and either way nobody minds. That ease is the whole point.</p>
+      </div>
+      <!-- Evening -->
+      <div class="reveal">
+        <p class="eyebrow text-[11px] text-sage-pale mb-4">Evening</p>
+        <p class="text-cream/85 font-light leading-relaxed text-lg">Dinner comes together in the common kitchen, five of you cooking, laughter spilling across the terrace. Or your door is closed, a book is open, and the evening is quietly, completely your own.</p>
+      </div>
+      <!-- Weekend -->
+      <div class="reveal md:col-span-2 border-t border-cream/15 pt-14 mt-4">
+        <p class="eyebrow text-[11px] text-sage-pale mb-4">When you're away</p>
+        <p class="text-cream/85 font-light leading-relaxed text-lg max-w-3xl">Lock the door and leave for a week, a month, a season. The staff tend the gardens and the pool, watch over your home, and have it ready and waiting the day you return. Belonging here asks nothing of you when you're gone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOUNDER QUOTE BAND ===================== -->
+<section class="relative py-24 lg:py-32 bg-cream overflow-hidden">
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <blockquote class="font-serif font-light text-2xl sm:text-3xl lg:text-4xl leading-snug text-sage-deep reveal">
+      &ldquo;Good design is not about how much we can spend. It is a reflection of the depth of our thinking.&rdquo;
+    </blockquote>
+    <p class="eyebrow text-[11px] text-sage-mid mt-8 reveal">Craig Henderson · Founder</p>
+  </div>
+</section>
+
+<!-- ===================== THE PLACE ===================== -->
+<section id="place" class="relative py-28 lg:py-36 bg-paper overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <p class="eyebrow text-[11px] text-sage-mid mb-6">The Place</p>
+        <h2 class="font-serif font-light text-3xl sm:text-4xl lg:text-5xl leading-tight text-sage-deep">Four and a half acres of living orchard.</h2>
+        <p class="mt-7 text-lg text-ink/80 font-light leading-relaxed">
+          Soulhabitat One sits on 7,460 square metres of central Koh Phangan, ten minutes from Thong Sala, Sri Thanu and Chaloklum, yet wrapped in the quiet of a mature tropical orchard. The land is owned in common, with no internal fences, no subdivisions and no roads cutting through the trees.
+        </p>
+        <p class="mt-5 text-lg text-ink/80 font-light leading-relaxed">
+          Durian, mangosteen, mango, rambutan and coconut grow where they have always grown. A freshwater stream runs year-round. Every vehicle stays at the entrance, so the estate itself belongs to footpaths, birdsong and the people who live here.
+        </p>
+        <div class="mt-9 grid grid-cols-2 gap-y-6 gap-x-8">
+          <div><p class="font-serif text-3xl text-sage-deep">7,460<span class="text-base text-ink/50"> m²</span></p><p class="text-sm text-ink/60 mt-1">Communally owned land</p></div>
+          <div><p class="font-serif text-3xl text-sage-deep">10<span class="text-base text-ink/50"> min</span></p><p class="text-sm text-ink/60 mt-1">To three island towns</p></div>
+          <div><p class="font-serif text-3xl text-sage-deep">Zero</p><p class="text-sm text-ink/60 mt-1">Internal roads or fences</p></div>
+          <div><p class="font-serif text-3xl text-sage-deep">All&nbsp;year</p><p class="text-sm text-ink/60 mt-1">Freshwater stream</p></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH 1.jpg" alt="The year-round freshwater stream threading through the Soulhabitat orchard" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Site plan band -->
+    <div class="mt-24 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal order-2 lg:order-1">
+        <div class="aspect-[16/11] rounded-2xl overflow-hidden border border-sage/30 bg-paper shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH Map.png" alt="Soulhabitat One site plan showing seven homes arranged around the central common building and natural swimming pool, with parking at the estate entrance" class="w-full h-full object-contain" />
+        </div>
+      </div>
+      <div class="reveal order-1 lg:order-2">
+        <p class="eyebrow text-[11px] text-sage-mid mb-6">The Site</p>
+        <h2 class="font-serif font-light text-3xl sm:text-4xl leading-tight text-sage-deep">Designed so that paths cross naturally.</h2>
+        <p class="mt-7 text-lg text-ink/80 font-light leading-relaxed">
+          The homes are placed with intention. They sit close enough that a walk to the common house brings you past a neighbour, and far enough that every window frames trees rather than walls. The common building and natural pool sit at the heart, with the orchard breathing all around.
+        </p>
+        <p class="mt-5 text-lg text-ink/80 font-light leading-relaxed">
+          It is the geometry of a real community: privacy and proximity held in careful balance.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE HOMES & COMMON HOUSE ===================== -->
+<section id="homes" class="relative py-28 lg:py-36 bg-cream overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="eyebrow text-[11px] text-sage-mid mb-6 reveal">The Homes &amp; Common House</p>
+      <h2 class="font-serif font-light text-3xl sm:text-4xl lg:text-5xl leading-tight text-sage-deep reveal">Your own home. And so much more than a home.</h2>
+      <p class="mt-6 text-lg text-ink/80 font-light leading-relaxed reveal">Seven private houses, each complete in itself. One generous common house holding everything a single home could never justify alone.</p>
+    </div>
+
+    <!-- Private home -->
+    <div class="mt-20 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH 6.jpg" alt="Inside a private home with warm timber walls, an open kitchen and an open staircase rising toward the canopy" class="w-full h-full object-cover" />
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-2xl text-sage-deep">A private home of your own</h3>
+        <p class="mt-5 text-ink/80 font-light leading-relaxed">
+          Two storeys, two bedrooms, roughly eighty square metres of considered space that is bold, durable and quietly beautiful. The bedrooms downstairs are air-conditioned. Upstairs, an open kitchen and living room breathe with the trees, cooled by the breeze and ceiling fans.
+        </p>
+        <ul class="mt-6 space-y-3 text-ink/75 font-light">
+          <li class="flex gap-3"><span aria-hidden="true" class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-sage-deep"></span>Designed for privacy from neighbours, while framing the best of the view</li>
+          <li class="flex gap-3"><span aria-hidden="true" class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-sage-deep"></span>Fully equipped and fully furnished for independent living</li>
+          <li class="flex gap-3"><span aria-hidden="true" class="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-sage-deep"></span>Low-maintenance, energy-efficient, built to last</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Common house -->
+    <div class="mt-20 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal order-2 lg:order-1">
+        <h3 class="font-serif text-2xl text-sage-deep">The common house</h3>
+        <p class="mt-5 text-ink/80 font-light leading-relaxed">
+          A large, high-roofed, light-filled building, one hundred and eighty square metres of shared life. This is where the community gathers to cook, to work, to move and to rest. Everything is commercial grade, fully furnished and ready.
+        </p>
+        <div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-ink/75 font-light">
+          <span class="flex gap-2"><span class="text-sage-deep">·</span>Commercial kitchen &amp; pantry</span>
+          <span class="flex gap-2"><span class="text-sage-deep">·</span>Open dining &amp; lounge</span>
+          <span class="flex gap-2"><span class="text-sage-deep">·</span>Co-working library</span>
+          <span class="flex gap-2"><span class="text-sage-deep">·</span>Yoga &amp; gym floor</span>
+          <span class="flex gap-2"><span class="text-sage-deep">·</span>Workshop &amp; lockable storage</span>
+          <span class="flex gap-2"><span class="text-sage-deep">·</span>Laundry, showers &amp; more</span>
+        </div>
+      </div>
+      <div class="reveal order-1 lg:order-2">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH 8.jpg" alt="Inside the common house, a long timber dining table and lounge beneath full-height glass that opens onto the trees" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Facilities strip -->
+    <div class="mt-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+      <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+        <img loading="lazy" decoding="async" src="images/SH 12.jpg" alt="The natural swimming pool edged by greenery, with timber loungers and an umbrella" class="w-full h-full object-cover" />
+      </div>
+      <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+        <img loading="lazy" decoding="async" src="images/SH 10.jpg" alt="A timber deck with sun loungers set among the trees" class="w-full h-full object-cover" />
+      </div>
+      <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+        <img loading="lazy" decoding="async" src="images/SH 7.jpg" alt="A glowing timber home at dusk with a fire crackling on the grass beside it" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY SOULHABITAT ===================== -->
+<section id="why" class="relative py-28 lg:py-36 bg-sage-deep text-cream overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="eyebrow text-[11px] text-sage-pale mb-6 reveal">Why Soulhabitat</p>
+      <h2 class="font-serif font-light text-3xl sm:text-4xl lg:text-5xl leading-tight reveal">Exceptional, at every level.</h2>
+    </div>
+    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+      <div class="reveal">
+        <h3 class="font-serif text-xl mb-3">Community, built in</h3>
+        <p class="text-cream/75 font-light leading-relaxed">A social fabric from day one. You're never isolated again, and you're always free to choose solitude.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl mb-3">Affordable luxury</h3>
+        <p class="text-cream/75 font-light leading-relaxed">More space and finer facilities than a private villa, with a pool, commercial kitchen, library and studio, all for the cost of an ordinary home.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl mb-3">Peace of mind</h3>
+        <p class="text-cream/75 font-light leading-relaxed">A permanent staff team means you can lock up and leave anytime, certain your home is safe and cared for.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl mb-3">Lower running costs</h3>
+        <p class="text-cream/75 font-light leading-relaxed">Shared staff, bulk buying and shared equipment bring monthly costs well below equivalent private living.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl mb-3">Built to last</h3>
+        <p class="text-cream/75 font-light leading-relaxed">An obsession with durable materials and real craftsmanship. Built properly, the first time, with no shortcuts.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl mb-3">Effortless admin</h3>
+        <p class="text-cream/75 font-light leading-relaxed">App-based shared-cost management and a monthly co-owner meeting. Transparent, consensus-led, simple.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMMUNITY & GOVERNANCE ===================== -->
+<section id="community" class="relative py-28 lg:py-36 bg-cream overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="eyebrow text-[11px] text-sage-mid mb-6 reveal">The Community &amp; Governance</p>
+      <h2 class="font-serif font-light text-3xl sm:text-4xl lg:text-5xl leading-tight text-sage-deep reveal">A community that holds together.</h2>
+      <p class="mt-6 text-lg text-ink/80 font-light leading-relaxed reveal">
+        Good neighbours aren't left to chance. Soulhabitat is governed gently but clearly, with light structures that let trust grow and protect everyone's peace.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-2 gap-x-14 gap-y-12">
+      <div class="reveal">
+        <h3 class="font-serif text-xl text-sage-deep mb-3">People who self-select</h3>
+        <p class="text-ink/75 font-light leading-relaxed">People drawn to community living tend to be warm and collaborative by nature. The right people find their way here, and that is the quiet engine behind everything that works.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl text-sage-deep mb-3">One home, one voice</h3>
+        <p class="text-ink/75 font-light leading-relaxed">A fair one-home-one-vote system. Major decisions need a genuine majority, so no single person ever holds undue control over the place you all call home.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl text-sage-deep mb-3">The Harmony Code</h3>
+        <p class="text-ink/75 font-light leading-relaxed">A short, reasonable set of shared commitments. It protects quiet hours, cares for shared spaces and keeps the estate's low-density calm. Minimal by design, and changed only by a vote.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="font-serif text-xl text-sage-deep mb-3">Conflict, handled with grace</h3>
+        <p class="text-ink/75 font-light leading-relaxed">Disagreements are met openly: a friendly conversation first, gentle mediation at the monthly meeting if needed, and a clear, fair process beyond that to protect the community for the long term.</p>
+      </div>
+    </div>
+
+    <!-- Harmony code chips -->
+    <div class="mt-14 flex flex-wrap justify-center gap-3 reveal">
+      <span class="text-sm text-sage-deep border border-sage/40 rounded-full px-5 py-2 bg-sage-wash">Quiet hours 10pm to 7am</span>
+      <span class="text-sm text-sage-deep border border-sage/40 rounded-full px-5 py-2 bg-sage-wash">Leave-no-trace shared spaces</span>
+      <span class="text-sm text-sage-deep border border-sage/40 rounded-full px-5 py-2 bg-sage-wash">Mindful resource sharing</span>
+      <span class="text-sm text-sage-deep border border-sage/40 rounded-full px-5 py-2 bg-sage-wash">Rentals one month minimum</span>
+      <span class="text-sm text-sage-deep border border-sage/40 rounded-full px-5 py-2 bg-sage-wash">Guests always welcome</span>
+      <span class="text-sm text-sage-deep border border-sage/40 rounded-full px-5 py-2 bg-sage-wash">Monthly co-owner meeting</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INVESTMENT, OWNERSHIP & TIMELINE ===================== -->
+<section id="ownership" class="relative py-28 lg:py-36 bg-paper overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="eyebrow text-[11px] text-sage-mid mb-6 reveal">Investment, Ownership &amp; Timeline</p>
+      <h2 class="font-serif font-light text-3xl sm:text-4xl lg:text-5xl leading-tight text-sage-deep reveal">Honest numbers. Protected ownership.</h2>
+      <p class="mt-6 text-lg text-ink/80 font-light leading-relaxed reveal">
+        For US$230,000, all-inclusive and fully completed, you aren't simply buying a home. You're gaining the lifestyle of a two-million-dollar villa, without any of its cost or its headaches.
+      </p>
+    </div>
+
+    <!-- Cost breakdown -->
+    <div class="mt-20 grid lg:grid-cols-2 gap-16">
+      <div class="reveal">
+        <h3 class="font-serif text-xl text-sage-deep mb-6">What it costs</h3>
+        <div class="space-y-px rounded-2xl overflow-hidden border border-sage/25">
+          <div class="flex justify-between px-6 py-4 bg-cream"><span class="text-ink/75 font-light">Legal fees &amp; setup</span><span class="text-sage-deep">$3,000</span></div>
+          <div class="flex justify-between px-6 py-4 bg-sage-wash"><span class="text-ink/75 font-light">Land, 1/7 freehold share</span><span class="text-sage-deep">$80,000</span></div>
+          <div class="flex justify-between px-6 py-4 bg-cream"><span class="text-ink/75 font-light">Design &amp; permits</span><span class="text-sage-deep">$6,000</span></div>
+          <div class="flex justify-between px-6 py-4 bg-sage-wash"><span class="text-ink/75 font-light">Construction</span><span class="text-sage-deep">$95,000</span></div>
+          <div class="flex justify-between px-6 py-4 bg-cream"><span class="text-ink/75 font-light">Furnishings &amp; fit-out</span><span class="text-sage-deep">$25,000</span></div>
+          <div class="flex justify-between px-6 py-4 bg-sage-wash"><span class="text-ink/75 font-light">Pool, landscaping &amp; utilities</span><span class="text-sage-deep">$21,000</span></div>
+          <div class="flex justify-between px-6 py-5 bg-sage-deep text-cream"><span class="font-serif text-lg">Total per owner</span><span class="font-serif text-lg">$230,000</span></div>
+        </div>
+        <p class="mt-4 text-sm text-ink/55 font-light">All-inclusive. Fully furnished. Move-in ready.</p>
+      </div>
+
+      <!-- Running costs + payment summary -->
+      <div class="reveal space-y-8">
+        <div>
+          <h3 class="font-serif text-xl text-sage-deep mb-6">Paid in stages, as it's built</h3>
+          <p class="text-ink/75 font-light leading-relaxed">A seven-step schedule tied to real milestones. It starts with a 1% booking fee that reserves your home, moves through land, construction and roofing, and ends with the final 10% at key handover. You pay as your home rises.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-5">
+          <div class="bg-cream rounded-2xl border border-sage/25 p-6">
+            <p class="font-serif text-3xl text-sage-deep">$250<span class="text-base text-ink/50">/mo</span></p>
+            <p class="text-sm text-ink/60 mt-2">All-in monthly cost, common fees plus maintenance fund. Roughly $3,000 a year.</p>
+          </div>
+          <div class="bg-cream rounded-2xl border border-sage/25 p-6">
+            <p class="font-serif text-3xl text-sage-deep">7 steps</p>
+            <p class="text-sm text-ink/60 mt-2">Milestone-based payments, from 1% booking to 10% at handover.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ownership structure -->
+    <div class="mt-28 reveal">
+      <h3 class="font-serif text-xl text-sage-deep mb-10 text-center">Ownership, designed to protect you</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-cream rounded-2xl border border-sage/25 p-7 text-center">
+          <div aria-hidden="true" class="w-10 h-10 mx-auto mb-4 rounded-full border border-sage-deep/40 flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-sage-deep"></span></div>
+          <h4 class="font-serif text-lg text-sage-deep mb-2">Your private home</h4>
+          <p class="text-sm text-ink/70 font-light leading-relaxed">100% individually owned and outright, with the building permit in your own name.</p>
+        </div>
+        <div class="bg-cream rounded-2xl border border-sage/25 p-7 text-center">
+          <div aria-hidden="true" class="w-10 h-10 mx-auto mb-4 rounded-full border border-sage-deep/40 flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-sage-deep"></span></div>
+          <h4 class="font-serif text-lg text-sage-deep mb-2">Offshore company</h4>
+          <p class="text-sm text-ink/70 font-light leading-relaxed">Owned equally by all seven co-owners. Holds the land lease and the common house.</p>
+        </div>
+        <div class="bg-cream rounded-2xl border border-sage/25 p-7 text-center">
+          <div aria-hidden="true" class="w-10 h-10 mx-auto mb-4 rounded-full border border-sage-deep/40 flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-sage-deep"></span></div>
+          <h4 class="font-serif text-lg text-sage-deep mb-2">Thai company</h4>
+          <p class="text-sm text-ink/70 font-light leading-relaxed">Owns the land freehold, structured under professional legal advice and clear contracts.</p>
+        </div>
+      </div>
+      <p class="mt-8 text-center text-ink/65 font-light">Craig is a future resident and co-owner, so his interests are fully aligned with yours.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mt-28 reveal">
+      <h3 class="font-serif text-xl text-sage-deep mb-10 text-center">The road to completion</h3>
+      <div class="relative">
+        <div class="hidden md:block absolute top-5 left-0 right-0 h-px bg-sage/30"></div>
+        <div class="grid md:grid-cols-6 gap-8 md:gap-4">
+          <div class="text-center"><div class="w-3 h-3 rounded-full bg-sage-deep mx-auto md:mb-5"></div><p class="text-sage-deep font-medium text-sm mt-3 md:mt-0">Jan 2023</p><p class="text-xs text-ink/60 mt-1">Land purchased</p></div>
+          <div class="text-center"><div class="w-3 h-3 rounded-full bg-sage-deep mx-auto md:mb-5"></div><p class="text-sage-deep font-medium text-sm mt-3 md:mt-0">Nov 2026</p><p class="text-xs text-ink/60 mt-1">Final design complete</p></div>
+          <div class="text-center"><div class="w-3 h-3 rounded-full bg-sage-deep mx-auto md:mb-5"></div><p class="text-sage-deep font-medium text-sm mt-3 md:mt-0">Dec 2026</p><p class="text-xs text-ink/60 mt-1">Co-owners confirmed</p></div>
+          <div class="text-center"><div class="w-3 h-3 rounded-full bg-sage-deep mx-auto md:mb-5"></div><p class="text-sage-deep font-medium text-sm mt-3 md:mt-0">Jan 2027</p><p class="text-xs text-ink/60 mt-1">Permits obtained</p></div>
+          <div class="text-center"><div class="w-3 h-3 rounded-full bg-sage-deep mx-auto md:mb-5"></div><p class="text-sage-deep font-medium text-sm mt-3 md:mt-0">Feb 2027</p><p class="text-xs text-ink/60 mt-1">Construction begins</p></div>
+          <div class="text-center"><div class="w-3 h-3 rounded-full bg-sage-mid mx-auto md:mb-5 ring-4 ring-sage/20"></div><p class="text-sage-deep font-medium text-sm mt-3 md:mt-0">Dec 2027</p><p class="text-xs text-ink/60 mt-1">Project complete</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== A WORD FROM THE FOUNDER ===================== -->
+<section id="founder" class="relative py-28 lg:py-36 bg-cream overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-5 gap-14 items-center">
+    <div class="reveal lg:col-span-2">
+      <div class="aspect-[4/5] rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+        <img loading="lazy" decoding="async" src="images/SH 13.jpg" alt="Craig Henderson, founder of Soulhabitat, on a pearl farm jetty in Southeast Asia" class="w-full h-full object-cover" />
+      </div>
+    </div>
+    <div class="reveal lg:col-span-3">
+      <p class="eyebrow text-[11px] text-sage-mid mb-6">A Word from the Founder</p>
+      <h2 class="font-serif font-light text-3xl sm:text-4xl leading-tight text-sage-deep">Craig Henderson</h2>
+      <p class="mt-7 text-lg text-ink/80 font-light leading-relaxed">
+        I was born and raised on my family's tea estate in the Seychelles, educated in Scotland, and then spent decades building things in the difficult, remote corners of Southeast Asia. Pearl farms in Indonesia, Papua New Guinea, the Philippines, Myanmar and Thailand. Beyond teaching me how to build well in hard places, all of that gave me an obsession with doing things properly the first time. No shortcuts. No compromises on materials or craftsmanship.
+      </p>
+      <p class="mt-5 text-lg text-ink/80 font-light leading-relaxed">
+        Let me be completely honest about what Soulhabitat is. It's the home I'm building for myself. I will live here. I will be your neighbour. When you invest in this, you're trusting me with something important, and I take that seriously. Every decision has been made by someone who will live with its consequences.
+      </p>
+    </div>
+  </div>
+
+  <!-- Craft & career: the pearl-farming story -->
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 mt-24">
+    <p class="eyebrow text-[11px] text-sage-mid mb-8 text-center reveal">A life of building things properly</p>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <figure class="reveal">
+        <div class="aspect-square rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH 14.jpg" alt="Craig walking a jungle track on Koh Phangan with friends" class="w-full h-full object-cover" />
+        </div>
+        <figcaption class="text-xs text-ink/55 mt-3 text-center">Home on Koh Phangan</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="aspect-square rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH 15.jpg" alt="A lustrous pearl resting inside an open oyster shell in shallow water" class="w-full h-full object-cover" />
+        </div>
+        <figcaption class="text-xs text-ink/55 mt-3 text-center">Decades in pearl farming</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="aspect-square rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH 16.jpg" alt="A golden South Sea pearl set in a handcrafted gold ring" class="w-full h-full object-cover" />
+        </div>
+        <figcaption class="text-xs text-ink/55 mt-3 text-center">An eye for craftsmanship</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="aspect-square rounded-2xl overflow-hidden border border-sage/30 shadow-sm">
+          <img loading="lazy" decoding="async" src="images/SH 17.jpg" alt="A team building pearl-farm infrastructure on the water in Southeast Asia" class="w-full h-full object-cover" />
+        </div>
+        <figcaption class="text-xs text-ink/55 mt-3 text-center">Building in hard places</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / READY TO BELONG ===================== -->
+<section id="contact" class="relative py-28 lg:py-36 bg-sage-deep text-cream overflow-hidden">
+  <div class="relative max-w-3xl mx-auto px-6 lg:px-10 text-center">
+    <img loading="lazy" decoding="async" src="images/SH Logo cream.png" alt="Soulhabitat" class="h-11 w-auto mx-auto mb-8 reveal object-contain" />
+    <p class="eyebrow text-[11px] text-sage-pale mb-6 reveal">Ready to Belong?</p>
+    <h2 class="font-serif font-light text-4xl sm:text-5xl leading-tight reveal">Find out if Soulhabitat<br/>is your kind of home.</h2>
+    <p class="mt-7 text-cream/80 font-light text-lg leading-relaxed reveal">
+      Five homes remain. There is no hard sell here, only an honest invitation. If this way of living speaks to you, we'd love to hear from you and tell you more. We care about having a real mix of people here, so enquiries are warmly welcomed from every background.
+    </p>
+
+    <!-- Simple express-interest form -->
+    <form class="mt-12 max-w-md mx-auto text-left reveal" onsubmit="handleInterest(event)">
+      <div class="space-y-4">
+        <input required type="text" placeholder="Your name" class="w-full bg-cream/10 border border-cream/25 rounded-full px-5 py-3.5 text-cream placeholder-cream/50 focus:outline-none focus:border-cream/60 transition" />
+        <input required type="email" placeholder="Email address" class="w-full bg-cream/10 border border-cream/25 rounded-full px-5 py-3.5 text-cream placeholder-cream/50 focus:outline-none focus:border-cream/60 transition" />
+        <textarea rows="3" placeholder="A few words about what draws you here (optional)" class="w-full bg-cream/10 border border-cream/25 rounded-3xl px-5 py-3.5 text-cream placeholder-cream/50 focus:outline-none focus:border-cream/60 transition resize-none"></textarea>
+      </div>
+      <button type="submit" class="mt-5 w-full bg-cream text-sage-deep rounded-full px-8 py-3.5 text-sm tracking-wide hover:bg-white transition-all duration-300">Express interest</button>
+      <p id="form-note" class="hidden mt-4 text-center text-cream/85 text-sm"></p>
+    </form>
+
+    <div class="hair w-24 mx-auto my-12 opacity-40"></div>
+
+    <div class="reveal text-cream/80 font-light space-y-2">
+      <p>Or reach Craig directly:</p>
+      <p class="text-cream">
+        <a href="mailto:enquiries@soulhabitat.com" class="border-b border-cream/30 hover:border-cream transition">enquiries@soulhabitat.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://wa.me/66811160015" class="border-b border-cream/30 hover:border-cream transition">WhatsApp +66 (0) 811 160 015</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-sage-forest text-cream/70 py-14">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4">
+      <img loading="lazy" decoding="async" src="images/SH Logo cream.png" alt="Soulhabitat" class="h-7 w-auto object-contain" />
+      <span class="text-cream/40 text-sm">· built for happiness</span>
+    </div>
+    <div class="text-sm text-cream/55 text-center md:text-right">
+      <p>Koh Phangan, Thailand · www.soulhabitat.com</p>
+      <p class="mt-1">&copy; 2026 Soulhabitat. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Nav background on scroll: swap logo between cream (over hero) and green (over cream nav)
+  const nav = document.getElementById('nav');
+  const navInner = nav.querySelector('nav');
+  const navLogo = document.getElementById('nav-logo');
+  function onScroll() {
+    if (window.scrollY > 40) {
+      navInner.classList.add('bg-cream/90','border-sage/15','shadow-sm');
+      if (navLogo.dataset.state !== 'green') { navLogo.src = 'images/SH Logo transparent.png'; navLogo.dataset.state = 'green'; }
+    } else {
+      navInner.classList.remove('bg-cream/90','border-sage/15','shadow-sm');
+      if (navLogo.dataset.state !== 'cream') { navLogo.src = 'images/SH Logo cream.png'; navLogo.dataset.state = 'cream'; }
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Express-interest form (front-end only placeholder)
+  function handleInterest(e) {
+    e.preventDefault();
+    const note = document.getElementById('form-note');
+    note.textContent = 'Thank you. Your interest has been noted, and Craig will be in touch personally.';
+    note.classList.remove('hidden');
+    e.target.querySelectorAll('input,textarea,button').forEach(el => el.setAttribute('disabled','true'));
+  }
+</script>
+</body>
+</html>
